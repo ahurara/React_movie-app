@@ -12,8 +12,8 @@ code {
     monospace;
 }
 
-.main_screen{
- 
+.main_screen {
+
   background-image: url('./assets/constant-loubier-4tF8ZAMUE1g-unsplash.jpg');
   background-size: cover;
   background-position: center;
@@ -23,34 +23,38 @@ code {
 
 
 .row {
-  margin: 0; /* Remove default margin */
+  margin: 0;
+  /* Remove default margin */
 }
 
 .col-md-12 {
-  padding: 0; /* Remove default padding */
+  padding: 0;
+  /* Remove default padding */
 }
 
 .container-fluid {
-  padding: 0; /* Remove default padding */
+  padding: 0;
+  /* Remove default padding */
 }
 
-.title{
+.title {
   color: white;
   font-weight: bold;
   padding-top: 300px;
-  font-size: 15vh;
+  font-size: 13vh;
 }
 
-.watch{
+.watch {
   width: 250px;
   height: 40px;
   color: white;
   font-size: 20px;
   background-color: #161717;
- 
+
   border: none;
 }
-.search{
+
+.search {
   width: 150px;
   height: 40px;
   color: white;
@@ -59,34 +63,171 @@ code {
   border: none;
 }
 
-.right{
+.right {
   padding: 20px;
 }
 
-.left{
-padding: 0px;
+.left {
+  padding: 0px;
 }
 
-/* scrollbar properties */
-/* scrollbar.css */
-@media (max-width: 768px)  {
-  .title{
+.grid-container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 0px;
+  /* Add spacing between columns */
+  padding-top: 20px;
+}
+
+.button1 {
+
+  padding: 8px 16px;
+  background-color: white;
+  color: grey;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border: 1px solid black;
+  width: 130px;
+  border-radius: 20px 0px 0px 20px;
+  border-right: none;
+}
+
+.button2 {
+
+  padding: 8px 16px;
+  background-color: white;
+  color: grey;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border: 1px solid black;
+  width: 130px;
+  border-left: none;
+  border-right: none;
+}
+
+.button3 {
+
+  padding: 8px 16px;
+  background-color: white;
+  color: grey;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border: 1px solid black;
+  width: 130px;
+  border-radius: 0px 20px 20px 0px;
+  border-left: none;
+}
+
+.selected {
+  background-color: #123568;
+  color: #28C5A5;
+}
+
+.popular_cards {
+  display: flex;
+  flex-wrap: nowrap;
+  /* Prevents cards from wrapping to the next line */
+  overflow-x: auto;
+  /* Enable horizontal scrolling */
+  gap: 0px;
+  margin-top: 10px;
+  
+  padding-left: 20px;
+}
+
+.pcard {
+  margin: 20px;
+  border-radius: 10px;
+  
+ 
+  
+}
+
+.pimg {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+ 
+}
+
+@media (max-width: 768px) {
+  .title {
     color: white;
     font-weight: bold;
     font-size: 5vh;
     padding-top: 100px;
   }
 
-  .left{
+  
+
+  .left {
     padding: 50px;
   }
-  .right{
+
+  .right {
     padding: 0px;
   }
+
   .scrollable-cards {
     display: flex;
-    flex-wrap: nowrap; /* Prevents cards from wrapping to the next line */
-    overflow-x: auto; /* Enable horizontal scrolling */
+    flex-wrap: nowrap;
+    /* Prevents cards from wrapping to the next line */
+    overflow-x: auto;
+    /* Enable horizontal scrolling */
     gap: 180px;
+  }
+
+  .button1 {
+
+    padding: 0px;
+    background-color: white;
+    color: grey;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    border: 1px solid black;
+    width: 60px;
+    border-radius: 20px 0px 0px 20px;
+    border-right: none;
+  }
+
+  .button2 {
+
+    padding: 0px;
+    background-color: white;
+    color: grey;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    border: 1px solid black;
+    width: 60px;
+    border-left: none;
+    border-right: none;
+  }
+
+  .button3 {
+
+    padding: 0px;
+    background-color: white;
+    color: grey;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    border: 1px solid black;
+    width: 100px;
+    border-radius: 0px 20px 20px 0px;
+    border-left: none;
+  }
+
+  .btnbox{
+    margin-left: 0px;
+  }
+
+  .selected {
+    background-color: #123568;
+    color: #28C5A5;
   }
 }

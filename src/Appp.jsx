@@ -4,8 +4,10 @@ import './index.css';
 import sdata from "./sdata";
 import Navbar from "./components/Navbar";
 import Card from "./components/Card";
+import Popular from "./components/Popular";
 
 const Appp = () => {
+
 
     return (
         <>
@@ -39,9 +41,10 @@ const Appp = () => {
 
                 </div>
 
+
                 <div className="row" style={{ border: '1px solid pink' }}>
                     <div className="col-md-12 col-12 ">
-                        <h1>hello world</h1>
+                       <Popular/>
                     </div>
 
 

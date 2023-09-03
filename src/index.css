@@ -14,7 +14,7 @@ code {
 
 .main_screen {
 
-  background-image: url('./assets/constant-loubier-4tF8ZAMUE1g-unsplash.jpg');
+  
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -40,8 +40,9 @@ code {
 .title {
   color: white;
   font-weight: bold;
-  padding-top: 300px;
   font-size: 13vh;
+  padding: 0px;
+  margin: 0px;
 }
 
 .watch {
@@ -50,6 +51,7 @@ code {
   color: white;
   font-size: 20px;
   background-color: #161717;
+  margin-top: 10px;
 
   border: none;
 }
@@ -158,7 +160,7 @@ code {
     color: white;
     font-weight: bold;
     font-size: 5vh;
-    padding-top: 100px;
+    padding-top: 0px;
   }
 
   
@@ -229,5 +231,8 @@ code {
   .selected {
     background-color: #123568;
     color: #28C5A5;
+  }
+  .main_screen {
+    height: max-content;
   }
 }

@@ -1,39 +1,95 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PopularCards from "./PopularCards";
 
 const Popular = () => {
 
-    const [selected, setSelected] = useState(null);
+    const [post, setPost] = useState(null);
+    const [movie, setMovie] = useState(null);
+    const [tv, setTv] = useState(null);
+    const [selected, setSelected] = useState('movies');
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => {
+            if (selected === "movies") {
+                const options = {
+                    method: 'GET',
+                    headers: {
+                        accept: 'application/json',
+                        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ZmEyYjI5ZTJjNjdkOTJlMDJmYjIwYzU2YjM1ZjA4OCIsInN1YiI6IjY0ZWM4OWZmNTI1OGFlMDBhZGQ1Yzc2NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CxVu2Z09zDB96mUbxlqSoErCA0z-iaLREQiKtWxdrR0'
+                    }
+                };
+    
+                fetch('https://api.themoviedb.org/3/trending/movie/day?language=en-US', options)
+                    .then(response => response.json())
+                    .then((ApiData) => {
+                        console.log(ApiData.results)
+                        setPost(ApiData.results)
+                        setLoading(false);
+                    })
+                    .catch(err => console.error(err));
+            }
+            else if (selected === "tv") {
+                const options = {
+                    method: 'GET',
+                    headers: {
+                        accept: 'application/json',
+                        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ZmEyYjI5ZTJjNjdkOTJlMDJmYjIwYzU2YjM1ZjA4OCIsInN1YiI6IjY0ZWM4OWZmNTI1OGFlMDBhZGQ1Yzc2NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CxVu2Z09zDB96mUbxlqSoErCA0z-iaLREQiKtWxdrR0'
+                    }
+                };
+    
+                fetch('https://api.themoviedb.org/3/trending/tv/day?language=en-US', options)
+                    .then(response => response.json())
+                    .then((ApiData) => {
+                       // console.log(ApiData)
+                        setPost(ApiData.results)
+                        setLoading(false)
+                    })
+                    .catch(err => console.error(err));
+            }
+    
+        }, 1000);
+       
+    }, [loading])
+
+
+
+    const Movies = () => {
+        setSelected('movies');
+        setLoading('true');
+    }
+
+    const Tv = () => {
+        setSelected('tv');
+        setLoading('true');
+    }
 
     return (
         <>
             <div className="row">
                 <div className="col-md-12 grid-container">
-                    
-                    <div  className='btnbox' style={{ marginLeft: '20px', }}>
-                    <h3>What's Popular</h3>
-                        <button className={`button1 ${selected === 'stm' ? "selected" : ''}`} onClick={() => { setSelected('stm') }}>Streaming</button>
-                        <button className={`button2 ${selected === 'tv' ? "selected" : ''}`} onClick={() => { setSelected('tv') }}>On Tv</button>
+
+                    <div className='btnbox' style={{ marginLeft: '20px', }}>
+                        <h3>What's Popular</h3>
+                        <button className={`button1 ${selected === 'movies' ? "selected" : ''}`} onClick={Movies}>Movies</button>
+                        <button className={`button2 ${selected === 'tv' ? "selected" : ''}`} onClick={Tv}>On Tv</button>
                         <button className={`button3 ${selected === 'theaters' ? "selected" : ''}`} onClick={() => { setSelected('theaters') }}>In Theaters</button>
                     </div>
                 </div>
             </div>
-            <div className="row">
+            {loading ? <h1>Loading...</h1> : (<div className="row">
                 <div className="col-md-12">
-                <div className="popular_cards">
-                        <PopularCards name="hello" img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt0fLFSvnKH33tjjgIjc1B-LuL1DnmNBrbAA&usqp=CAU" />
-                        <PopularCards name="hello" img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUPi4SzTuJfTLkaE5dGBZ4re_X1RRCvq07xQ&usqp=CAU" />
-                        <PopularCards name="hello" img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpCkLGD5QILxxv_hoeqqNeAySv0a3_2kg9xw&usqp=CAU" />
-                        <PopularCards name="hello" img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt0fLFSvnKH33tjjgIjc1B-LuL1DnmNBrbAA&usqp=CAU" />
-                        <PopularCards name="hello" img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUPi4SzTuJfTLkaE5dGBZ4re_X1RRCvq07xQ&usqp=CAU" />
-                        <PopularCards name="hello" img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt0fLFSvnKH33tjjgIjc1B-LuL1DnmNBrbAA&usqp=CAU" />
-                        <PopularCards name="hello" img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUPi4SzTuJfTLkaE5dGBZ4re_X1RRCvq07xQ&usqp=CAU" />
-                        <PopularCards name="hello" img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpCkLGD5QILxxv_hoeqqNeAySv0a3_2kg9xw&usqp=CAU" />
-                        <PopularCards name="hello" img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt0fLFSvnKH33tjjgIjc1B-LuL1DnmNBrbAA&usqp=CAU" />
-                        <PopularCards name="hello" img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpCkLGD5QILxxv_hoeqqNeAySv0a3_2kg9xw&usqp=CAU" />
+                    <div className="popular_cards">
+                        {
+                            post.map((post) => {
+                                return <PopularCards firstAir={post.first_air_date} releaseDate={post.release_date} title={post.title} img={`https://image.tmdb.org/t/p/w500${post.poster_path}`} key={post.id} name={post.name} />
+
+                            })
+                        }
                     </div>
                 </div>
-            </div>
+            </div>)
+            }
         </>
     )
 }

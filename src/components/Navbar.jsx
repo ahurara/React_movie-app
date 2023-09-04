@@ -6,7 +6,7 @@ const Navbar=()=>
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
                 <div className="container-fluid">
-                    <a className="navbar-brand" style={{ color: "white", fontWeight: 'bold', fontSize: '5vh' }}>My Movie</a>
+                    <a className="navbar-brand" style={{ color: "white", fontWeight: 'bold', fontSize: '5vh',webkitTextStroke:' 1px black '}}>My Movie</a>
                     <div className="ml-auto">
                         <form className="d-flex">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

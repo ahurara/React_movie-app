@@ -26,7 +26,7 @@ const Appp = () => {
                 setMovie(apiData.results);
                 const randomIndex = Math.floor(Math.random() * apiData.results.length);
                 setRandomMovie(apiData.results[randomIndex]);
-                console.log(apiData);
+               // console.log(apiData);
                 setIsLoading(false);
             })
             .catch(err => console.error(err));
@@ -49,15 +49,15 @@ const Appp = () => {
                             <div className="col-md-8 col-12 right"  >
                                 {/* navbar code */}
                                 <Navbar />
-                                <h5 style={{ paddingTop: '250px',color:'white'}}>Releaase Date {randomeMovie.release_date}</h5>
+                                <h5 style={{ paddingTop: '250px',color:'white',webkitTextStroke:' 1px black '}}>Releaase Date {randomeMovie.release_date}</h5>
                                 <h1 className="title ">{randomeMovie.original_title}</h1>
                                 <button className="watch">Watch</button>
                             </div>
 
 
                             <div className="col-md-3 left" style={{ overflow: "auto", height: "calc(100vh - 56px)" }}>
-                                <h3 style={{ fontWeight: "bold", color: 'white', paddingTop: '20px' }}>Robert downy Junior</h3>
-                                <h5 style={{ color: 'grey' }}>movie director  </h5>
+                                <h3 style={{ fontWeight: "bold", color: 'white', paddingTop: '20px' ,webkitTextStroke:' 1px black '}}>Robert downy Junior</h3>
+                                <h5 style={{ color: 'grey' ,webkitTextStroke:' 1px black '}}>movie director  </h5>
                                 <div className="scrollable-cards ">
                                     <Card name="hello" img={`https://image.tmdb.org/t/p/w500${randomeMovie.poster_path}`} />
                                     <Card name="hello" img={`https://image.tmdb.org/t/p/w500${randomeMovie.backdrop_path}`}  />

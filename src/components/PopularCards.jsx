@@ -7,8 +7,8 @@ const PopularCards = (propss) => {
         <div className=" pcard">
             <div className="col-md-12 "  >
                 <img src={propss.img} className="pimg" alt="Card e"/>
-                <p>Movie Name</p>
-                <p>sep 16, 2022</p>
+                <p style={{fontWeight:'bold'}}>{propss.name}{propss.title}</p>
+                <p >{propss.releaseDate}{propss.firstAir}</p>
                 </div>
             </div>
         </>

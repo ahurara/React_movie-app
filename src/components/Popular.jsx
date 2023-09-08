@@ -4,8 +4,6 @@ import PopularCards from "./PopularCards";
 const Popular = () => {
 
     const [post, setPost] = useState(null);
-    const [movie, setMovie] = useState(null);
-    const [tv, setTv] = useState(null);
     const [selected, setSelected] = useState('movies');
     const [loading, setLoading] = useState(true);
 
@@ -23,7 +21,7 @@ const Popular = () => {
                 fetch('https://api.themoviedb.org/3/trending/movie/day?language=en-US', options)
                     .then(response => response.json())
                     .then((ApiData) => {
-                        console.log(ApiData.results)
+                        // console.log(ApiData.results)
                         setPost(ApiData.results)
                         setLoading(false);
                     })

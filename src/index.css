@@ -17,13 +17,58 @@ code {
   background-size:cover;
   background-position:center;
   width: 100%;
-  background-color: rgba(24, 25, 26, 0.8);
-  background-blend-mode: multiply;
+  background-color: rgba(82, 81, 81, 0.8);
+  background-blend-mode:overlay;
   
   
 }
 
+/* basic skeleton  */
+.skeleton{
+  background: #ddd;
+  margin: 10px 0;
+  border-radius: 4px;
+  /* animation: skeleton-loading 1s linear infinite;
+  opacity: .7; */
+}
 
+.skeleton.text{
+  width:150PX;
+  height: 12px;
+  /* margin-bottom: .25rem;
+  border-radius: .125rem; */
+}
+
+
+.skeleton.title{
+  width: 100PX;
+  height: 20px;
+  margin-bottom: 15px;
+}
+
+.skeleton.avatar{
+  width:100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.skeleton.thumbnail{
+  width: 150px;
+  height:230PX;
+  border-radius: 10px;
+}
+
+
+
+/* @keyframes skeleton-loading{
+  0%{
+    background-color: hsl(200 , 20%,70%);
+  }
+
+  100%{
+    background-color: hsl(200 , 20%,95%);
+  }
+} */
 
 .row {
   margin: 0;

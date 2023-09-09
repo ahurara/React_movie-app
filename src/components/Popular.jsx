@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PopularCards from "./PopularCards";
+import Shimmercard from "./ShimmerCard";
+import Skeleton from "./Skeleton";
 
 const Popular = () => {
 
@@ -17,7 +19,7 @@ const Popular = () => {
                         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ZmEyYjI5ZTJjNjdkOTJlMDJmYjIwYzU2YjM1ZjA4OCIsInN1YiI6IjY0ZWM4OWZmNTI1OGFlMDBhZGQ1Yzc2NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CxVu2Z09zDB96mUbxlqSoErCA0z-iaLREQiKtWxdrR0'
                     }
                 };
-    
+
                 fetch('https://api.themoviedb.org/3/trending/movie/day?language=en-US', options)
                     .then(response => response.json())
                     .then((ApiData) => {
@@ -35,19 +37,19 @@ const Popular = () => {
                         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ZmEyYjI5ZTJjNjdkOTJlMDJmYjIwYzU2YjM1ZjA4OCIsInN1YiI6IjY0ZWM4OWZmNTI1OGFlMDBhZGQ1Yzc2NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CxVu2Z09zDB96mUbxlqSoErCA0z-iaLREQiKtWxdrR0'
                     }
                 };
-    
+
                 fetch('https://api.themoviedb.org/3/trending/tv/day?language=en-US', options)
                     .then(response => response.json())
                     .then((ApiData) => {
-                       // console.log(ApiData)
+                        // console.log(ApiData)
                         setPost(ApiData.results)
                         setLoading(false)
                     })
                     .catch(err => console.error(err));
             }
-    
+
         }, 1000);
-       
+
     }, [loading])
 
 
@@ -75,19 +77,41 @@ const Popular = () => {
                     </div>
                 </div>
             </div>
-            {loading ? <h1>Loading...</h1> : (<div className="row">
-                <div className="col-md-12">
-                    <div className="popular_cards">
-                        {
-                            post.map((post) => {
-                                return <PopularCards firstAir={post.first_air_date} releaseDate={post.release_date} title={post.title} img={`https://image.tmdb.org/t/p/w500${post.poster_path}`} key={post.id} name={post.name} />
+            {loading ?
+                (<div className="row">
+                    <div className="col-md-12">
+                        <div className="popular_cards">
+                            {
 
-                            })
-                        }
+
+                                
+
+                                    [1, 2, 3, 4, 5, 6, 7,8,9,10,11,12].map((n) => {
+
+                                        return <Skeleton key={n} />
+                                    })
+                                
+
+                            }
+                        </div>
                     </div>
-                </div>
-            </div>)
+                </div>)
+                :
+                (<div className="row">
+                    <div className="col-md-12">
+                        <div className="popular_cards">
+                            {
+                                post.map((post) => {
+                                    return <PopularCards firstAir={post.first_air_date} releaseDate={post.release_date} title={post.title} img={`https://image.tmdb.org/t/p/w500${post.poster_path}`} key={post.id} name={post.name} />
+
+                                })
+                            }
+                        </div>
+                    </div>
+                </div>)
             }
+
+
         </>
     )
 }

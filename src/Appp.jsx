@@ -27,7 +27,7 @@ const Appp = () => {
 
                 const randomIndex = Math.floor(Math.random() * apiData.results.length);
                 setRandomMovie(apiData.results[randomIndex]);
-                console.log(apiData.results);
+                // console.log(apiData.results);
                 setIsLoading(false);
             })
             .catch(err => console.error(err));
@@ -46,10 +46,10 @@ const Appp = () => {
                 {isloading ? <h1>Loading....</h1> : (
                     <div className="row" >
                     
-                        <div className="col-md-12 col-12 main_screen" style={divStyle}>
+                        <div className="col-md-12 col-12 main_screen g-0" style={divStyle}>
                         
-                                <div className="row no-gutters m-0" >
-                                    <div className="col-md-8 col-12 right"  >
+                                <div className="row no-gutters m-0 g-0" >
+                                    <div className="col-md-12 col-12 right g-0 p-2"  >
                                         {/* navbar code */}
                                         <Navbar />
                                         <h5 style={{ paddingTop: '250px', color: 'white', webkitTextStroke: ' 0px black     ' }}>Release Date {randomeMovie.release_date}</h5>

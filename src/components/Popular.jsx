@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PopularCards from "./PopularCards";
-import Shimmercard from "./ShimmerCard";
 import Skeleton from "./Skeleton";
+
 
 const Popular = () => {
 
@@ -48,7 +48,7 @@ const Popular = () => {
                     .catch(err => console.error(err));
             }
 
-        }, 1000);
+        }, 2500);
 
     }, [loading])
 
@@ -84,13 +84,13 @@ const Popular = () => {
                             {
 
 
-                                
 
-                                    [1, 2, 3, 4, 5, 6, 7,8,9,10,11,12].map((n) => {
 
-                                        return <Skeleton key={n} />
-                                    })
-                                
+                                [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => {
+
+                                    return <Skeleton key={n} />
+                                })
+
 
                             }
                         </div>

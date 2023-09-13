@@ -28,8 +28,8 @@ code {
   background: #ddd;
   margin: 10px 0;
   border-radius: 4px;
-  /* animation: skeleton-loading 1s linear infinite;
-  opacity: .7; */
+  animation: skeleton-loading 1s linear infinite;
+  opacity: .7; 
 }
 
 .skeleton.text{
@@ -60,7 +60,7 @@ code {
 
 
 
-/* @keyframes skeleton-loading{
+ @keyframes skeleton-loading{
   0%{
     background-color: hsl(200 , 20%,70%);
   }
@@ -68,7 +68,7 @@ code {
   100%{
     background-color: hsl(200 , 20%,95%);
   }
-} */
+} 
 
 .row {
   margin: 0;
@@ -113,6 +113,7 @@ code {
   font-size: 20px;
   background-color: #E50914;
   border: none;
+  border-radius: 0px;
   
 }
 
@@ -203,6 +204,34 @@ code {
   width: 150px;
   height: auto;
   border-radius: 10px;
+ 
+}
+
+.searchCards{
+  display: flex;
+  flex-wrap:wrap;
+  /* Prevents cards from wrapping to the next line */
+  overflow-x: auto;
+  /* Enable horizontal scrolling */
+  gap: 0px;
+  margin-top: 10px;
+  
+  padding-left: 20px;
+}
+
+.scard {
+  margin: 20px;
+  border-radius: 10px;
+  width:200px ;
+  background-color: #3a3a3a;
+ 
+  
+}
+
+.simg {
+  width: 200px;
+  height: auto;
+  border-radius: 10px 10px 0px 0px;
  
 }
 

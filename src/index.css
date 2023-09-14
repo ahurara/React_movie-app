@@ -223,17 +223,18 @@ code {
   margin: 20px;
   border-radius: 10px;
   width:200px ;
-  background-color: #3a3a3a;
+  background-color: #27272a;
  
   
 }
 
 .simg {
   width: 200px;
-  height: auto;
+  height: 300px;
   border-radius: 10px 10px 0px 0px;
  
 }
+
 
 @media (max-width: 768px) {
   .title {

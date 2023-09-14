@@ -49,7 +49,7 @@ const Appp = () => {
                         <div className="col-md-12 col-12 main_screen g-0" style={divStyle}>
                         
                                 <div className="row no-gutters m-0 g-0" >
-                                    <div className="col-md-12 col-12 right g-0 p-2"  >
+                                    <div className="col-md-12 col-12 right g-0 p-4"  >
                                         {/* navbar code */}
                                         <Navbar />
                                         <h5 style={{ paddingTop: '250px', color: 'white', webkitTextStroke: ' 0px black     ' }}>Release Date {randomeMovie.release_date}</h5>

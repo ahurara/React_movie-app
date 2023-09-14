@@ -56,7 +56,7 @@ const SearchPage = (props) => {
 
     return (
         <>
-            <div className="container-fluid bg-dark" style={{}}>
+            <div className="container-fluid " style={{backgroundColor:'#18181b',minHeight:'100vh'}}>
                 <div className="row" >
                     <div className="col-md-12 col-12" >
                         <div className="row no-gutters m-0" >
@@ -95,7 +95,7 @@ const SearchPage = (props) => {
                                 <div className="searchCards">
                                     {
                                         movie.map((post) => {
-                                            return <SearchCards firstAir={post.first_air_date} releaseDate={post.release_date} title={post.title} img={`https://image.tmdb.org/t/p/w500${post.poster_path}`} key={post.id} name={post.name} />
+                                            return <SearchCards firstAir={post.first_air_date} releaseDate={post.release_date} title={post.title} img={post.poster_path} key={post.id} name={post.name} />
 
                                         })
                                     }

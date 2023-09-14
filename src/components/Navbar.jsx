@@ -29,7 +29,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light bg-transparent no-gutters g-0">
+            <nav className="navbar navbar-expand-lg navbar-light bg-transparent no-gutters g-0 p-0">
                 <div className="container-fluid no-gutters g-0 m-0">
                     <a className="navbar-brand m-2" href='#hh' style={{ color: "white", fontWeight: 'bold', fontSize: '5vh', webkitTextStroke: ' 1px black ', }}>My Movie</a>
                     <div className="mx-auto" style={{ display: 'flex' }}>

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import '../../index.css';
-import { useParams } from "react-router-dom";
-import Popular from "../../components/Popular";
+import {  useNavigate, useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import Skeleton from "../../components/Skeleton";
-import PopularCards from "../../components/PopularCards";
 import SearchCards from "../../components/SearchCards";
 
 
@@ -13,9 +11,9 @@ const SearchPage = (props) => {
 
     const { post } = useParams();
     const [loadingState, setLoadingState] = useState(true);
-
+    const navigate=useNavigate();
     
-    // Check if 'post' is a valid JSON string
+  
     const[movie,setmovie]=useState(post);
     console.log(movie);
 
@@ -52,6 +50,11 @@ const SearchPage = (props) => {
         }
 
     , [post])
+
+    const movieDetail=(id)=>{
+       console.log(id);
+        navigate(`/movieDetail/${id}`);
+    }
 
 
     return (
@@ -92,13 +95,16 @@ const SearchPage = (props) => {
                             )
                             :
                             (
-                                <div className="searchCards">
+                                 <div className="searchCards "> 
+                               
+                             
                                     {
                                         movie.map((post) => {
-                                            return <SearchCards firstAir={post.first_air_date} releaseDate={post.release_date} title={post.title} img={post.poster_path} key={post.id} name={post.name} />
+                                            return <SearchCards firstAir={post.first_air_date} releaseDate={post.release_date} title={post.title} img={post.poster_path} key={post.id} name={post.name}  onClick={()=>{movieDetail(post.id)}}/>
 
                                         })
                                     }
+                                  
                                 </div>
                             )
                         }

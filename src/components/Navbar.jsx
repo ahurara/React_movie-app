@@ -23,6 +23,12 @@ const Navbar = () => {
 
     }
 
+    const handleKeyPress=(e)=>{
+        if(e.key==="Enter"){
+            handleSavedChange();
+        }
+    }
+
 
 
 
@@ -34,7 +40,7 @@ const Navbar = () => {
                     <a className="navbar-brand m-2" href='#hh' style={{ color: "white", fontWeight: 'bold', fontSize: '5vh', webkitTextStroke: ' 1px black ', }}>My Movie</a>
                     <div className="mx-auto" style={{ display: 'flex' }}>
 
-                        <input className="form-control me-2" style={{ borderRadius: '0px' }} type="search" placeholder="Search Moive" aria-label="Search" value={inputText} onChange={handleInputChange} />
+                        <input className="form-control me-2" style={{ borderRadius: '0px' }} type="search" placeholder="Search Moive" aria-label="Search" value={inputText} onChange={handleInputChange} onKeyPress={handleKeyPress} />
                         <button className="search " onClick={handleSavedChange}>Search</button>
 
                     </div>

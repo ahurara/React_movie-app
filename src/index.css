@@ -19,6 +19,7 @@ code {
   width: 100%;
   background-color: rgba(82, 81, 81, 0.8);
   background-blend-mode:overlay;
+  /* min-height: 100vh; */
   
   
 }
@@ -229,8 +230,8 @@ code {
 }
 
 .simg {
-  width: 200px;
-  height: 300px;
+  width: 100%;
+  height: auto;
   border-radius: 10px 10px 0px 0px;
  
 }

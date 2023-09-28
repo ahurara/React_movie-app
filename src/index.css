@@ -353,5 +353,14 @@ code {
     padding-top: 50px;
     font-size: 7vh;
   }
+
+
+  .scard{
+    width: 150px;
+    margin-left: 0px;
+  }
+  .searchCards{
+    padding-left: 10px;
+  }
   
 }

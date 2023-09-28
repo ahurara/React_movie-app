@@ -244,6 +244,11 @@ code {
   padding-bottom: 50px;
 }
 
+.imgDetail{
+  width: 40vh;
+  height: 65vh;
+  border-radius: 10px
+}
 @media (max-width: 768px) {
   .title {
     color: white;
@@ -337,6 +342,16 @@ code {
     padding-right: 5vh;
     padding-top: 50px;
     padding-bottom: 50px;
+  }
+
+  .imgDetail{
+    padding: 0;
+    width: 30vh;
+    height: 50vh;
+  }
+  .titledetail{
+    padding-top: 50px;
+    font-size: 7vh;
   }
   
 }

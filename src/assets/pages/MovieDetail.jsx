@@ -5,6 +5,7 @@ import '../../index.css';
 const MovieDetails = () => {
   const { id } = useParams();
   console.log(id);
+  
 
   const [loading, setLoading] = useState(true);
   const [post, setPost] = useState(null);
@@ -23,7 +24,7 @@ const MovieDetails = () => {
       .then((response) => {
         console.log(response)
         setPost(response);
-
+        
         setLoading(false)
       })
       .catch(err => console.error(err));
@@ -36,18 +37,28 @@ const MovieDetails = () => {
     backgroundBlendMode: 'overlay',
   }
 
-
-
-  const img = {
-    width: '40vh',
-    height: '65vh',
-    borderRadius: '10px'
+  function minutesToHoursAndMinutes(minutes ,year) {
+    const hours = Math.floor(minutes / 60);
+    const remainingMinutes = minutes % 60;
+    const yeara=year.split('-')[0];
+  
+    return `${hours}h ${remainingMinutes}min ,${yeara}`;
   }
+
+  
+  
+
 
   return (
     <>
       {loading ?
-        <h1>loading...</h1>
+        <div className="row">
+                    <div className="col-md-12 mx-auto text-center pt-5">
+                    <div class="spinner-border " role="status" style={{width:'15vh',height:'15vh'}}>
+                    <span class="visually-hidden" >Loading...</span>
+                </div>
+                    </div>
+                </div>
         :
         (<div className="container-fluid " style={containerStyling}>
           <div className="row styling" >
@@ -68,7 +79,7 @@ const MovieDetails = () => {
 
 
               <br />
-              <h3>PRODUCTION  </h3><i class="bi bi-camera-video"></i>
+              <h3>PRODUCTION  <i class="bi bi-camera-reels-fill"></i></h3>
 
               <div style={{ lineHeight: '.5' }}>
               {post.production_companies.map((pc) => {
@@ -82,9 +93,12 @@ const MovieDetails = () => {
 
 
             <div className="col-md-6">
-              <h1 >{post.title}</h1>
+              <h1 className="titledetail">{post.title}</h1>
               <br />
-              <p style={{ fontWeight: 'bold' }}>1h 47min ,2019</p>
+              <p style={{ fontWeight: 'bold' }}>{
+                minutesToHoursAndMinutes(post.runtime,post.release_date)
+
+              }</p>
               <br />
               <p>{post.overview}</p>
 
@@ -93,7 +107,7 @@ const MovieDetails = () => {
 
 
             <div className="col-md-3 pt-3" >
-              <img src={`https://image.tmdb.org/t/p/w500${post.poster_path}`} style={img} />
+              <img src={`https://image.tmdb.org/t/p/w500${post.poster_path}`} className="imgDetail"  />
             </div>
           </div>
 

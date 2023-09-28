@@ -7,7 +7,7 @@ const MovieDetails = () => {
   console.log(id);
 
   const [loading, setLoading] = useState(true);
-  const [post,setPost]=useState(null);
+  const [post, setPost] = useState(null);
 
   useEffect(() => {
     const options = {
@@ -36,80 +36,77 @@ const MovieDetails = () => {
     backgroundBlendMode: 'overlay',
   }
 
- 
 
-  const img={
-    width:'40vh',
-    height:'65vh',
-    borderRadius:'10px'
+
+  const img = {
+    width: '40vh',
+    height: '65vh',
+    borderRadius: '10px'
   }
 
   return (
     <>
-    {loading?
-  <h1>loading...</h1>
-    :
-    (<div className="container-fluid " style={containerStyling}>
-        <div className="row styling" >
-          <div className="col-md-3">
-            <h2>Voting : 7.7</h2>
-            <br />
+      {loading ?
+        <h1>loading...</h1>
+        :
+        (<div className="container-fluid " style={containerStyling}>
+          <div className="row styling" >
+            <div className="col-md-3">
+              <h2>Voting :{post.popularity}</h2>
+              <br />
 
-            <h3>GENRE</h3>
+              <h3>GENRE</h3>
 
-            <div style={{ lineHeight: '.5' }}>
+              <div style={{ lineHeight: '.5' }}>
+                {post.genres.map((genre) => (
+                  <p key={genre.id}>{genre.name}</p>
+                ))}
 
-              <p>Comedy</p>
-              <p>Thriller</p>
-              <p>Drama</p>
+
+
+              </div>
+
+
+              <br />
+              <h3>PRODUCTION  </h3><i class="bi bi-camera-video"></i>
+
+              <div style={{ lineHeight: '.5' }}>
+              {post.production_companies.map((pc) => {
+                return <p key={pc.id}>{pc.name}</p>;
+              })}
+              </div>
+
+             
 
             </div>
 
 
-            <br />
-            <h3>DIRECTOR </h3><i class="fa fa-camera-video"></i>
+            <div className="col-md-6">
+              <h1 >{post.title}</h1>
+              <br />
+              <p style={{ fontWeight: 'bold' }}>1h 47min ,2019</p>
+              <br />
+              <p>{post.overview}</p>
 
-            <p>Loren Scafiera</p>
-            <br />
 
-            <h3>PRODUCER</h3>
-            <div style={{ lineHeight: '0.5' }}>
-              <p>loren ipsum</p>
-              <p>loren ipsum</p>
-              <p>loren ipsum</p>
+            </div>
+
+
+            <div className="col-md-3 pt-3" >
+              <img src={`https://image.tmdb.org/t/p/w500${post.poster_path}`} style={img} />
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-md-12" style={{ backgroundColor: '#363636', minHeight: '50vh' }}>
+
             </div>
 
           </div>
-
-
-          <div className="col-md-6">
-            <h1 >Avengers</h1>
-            <br />
-            <p style={{ fontWeight: 'bold' }}>1h 47min ,2019</p>
-            <br />
-            <p>In such cases, it's a good idea to inspect the element using your browser's developer tools to see if
-              there are any overriding CSS styles affecting the padding. Ensure that there are no other styles applied
-              that might be conflicting with Bootstrap's utility classes</p>
-
-
-          </div>
-
-
-          <div className="col-md-3 pt-3" >
-            <img src={`https://image.tmdb.org/t/p/w500${post.poster_path}`} style={img}/>
-          </div>
         </div>
-
-        <div className="row">
-          <div className="col-md-12" style={{ backgroundColor: '#363636', minHeight: '50vh' }}>
-
-          </div>
-
-        </div>
-      </div>
-)
-    }
-          </>
+        )
+      }
+    </>
   )
 }
 

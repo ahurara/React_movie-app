@@ -43,22 +43,28 @@ const Appp = () => {
         <>
 
             <div className="container-fluid " >
-                {isloading ? <h1>Loading....</h1> : (
+                {isloading ? <div className="row">
+                    <div className="col-md-12 mx-auto text-center pt-5">
+                    <div class="spinner-border " role="status" style={{width:'15vh',height:'15vh'}}>
+                    <span class="visually-hidden" >Loading...</span>
+                </div>
+                    </div>
+                </div> : (
                     <div className="row" >
-                    
-                        <div className="col-md-12 col-12 main_screen g-0" style={divStyle}>
-                        
-                                <div className="row no-gutters m-0 g-0" >
-                                    <div className="col-md-12 col-12 right g-0 p-4"  >
-                                        {/* navbar code */}
-                                        <Navbar />
-                                        <h5 style={{ paddingTop: '250px', color: 'white', webkitTextStroke: ' 0px black     ' }}>Release Date {randomeMovie.release_date}</h5>
-                                        <h1 className="title ">{randomeMovie.original_title}</h1>
-                                        <button className="watch ">Watch</button>
-                                    </div>
-                                    
 
-                                    {/* <div className="col-md-3 left" style={{ overflow: "auto", height: "calc(100vh - 56px)" }}>
+                        <div className="col-md-12 col-12 main_screen g-0" style={divStyle}>
+
+                            <div className="row no-gutters m-0 g-0" >
+                                <div className="col-md-12 col-12 right g-0 p-4"  >
+                                    {/* navbar code */}
+                                    <Navbar />
+                                    <h5 style={{ paddingTop: '250px', color: 'white', webkitTextStroke: ' 0px black     ' }}>Release Date {randomeMovie.release_date}</h5>
+                                    <h1 className="title ">{randomeMovie.original_title}</h1>
+                                    <button className="watch ">Watch</button>
+                                </div>
+
+
+                                {/* <div className="col-md-3 left" style={{ overflow: "auto", height: "calc(100vh - 56px)" }}>
                                 <h3 style={{ fontWeight: "bold", color: 'white', paddingTop: '20px' ,webkitTextStroke:' 1px black '}}>Robert downy Junior</h3>
                                 <h5 style={{ color: 'grey' ,webkitTextStroke:' 1px black '}}>movie director  </h5>
                                 <div className="scrollable-cards ">
@@ -66,12 +72,12 @@ const Appp = () => {
                                     <Card name="hello" img={`https://image.tmdb.org/t/p/w500${randomeMovie.backdrop_path}`}  />
                                      </div>
                             </div> */}
-                                </div>
-                               
-                                </div>
-                        
+                            </div>
 
-                       
+                        </div>
+
+
+
                     </div>)
                 }
 

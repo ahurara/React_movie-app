@@ -6,7 +6,7 @@ const Skeleton=()=>{
     return(
         <>
          <>
-        <div className=" pcard">
+        <div className=" pcard" >
             <div className="col-md-12 "  >
             <Shimmercard type={"thumbnail"}/>
             <Shimmercard type={"text"}/>

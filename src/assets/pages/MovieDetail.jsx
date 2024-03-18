@@ -9,7 +9,7 @@ const MovieDetails = () => {
 
   const [loading, setLoading] = useState(true);
   const [post, setPost] = useState(null);
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -28,7 +28,7 @@ const MovieDetails = () => {
         setLoading(false)
       })
       .catch(err => console.error(err));
-  }, [])
+  }, [id])
 
   const containerStyling = {
     backgroundImage: ' linear-gradient( #eb2d98, #0294C3)',
@@ -53,12 +53,22 @@ const MovieDetails = () => {
     <>
       {loading ?
         <div className="row">
-                    <div className="col-md-12 mx-auto text-center pt-5">
+                    {/* <div className="col-md-12 mx-auto text-center pt-5">
                     <div class="spinner-border " role="status" style={{width:'15vh',height:'15vh'}}>
                     <span class="visually-hidden" >Loading...</span>
                 </div>
                     </div>
+                </div> */}
+
+                <div className="col-md-12 mx-auto mainImg pt-5" style={{gap:'5px',height:'85vh',display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
+                    <div class="spinner-border loader" role="status" >
+                    <span class="visually-hidden" >Loading...</span>
                 </div>
+                
+                <h1>Loading...</h1>
+                    </div>
+                    </div>
+                    
         :
         (<div className="container-fluid " style={containerStyling}>
           <div className="row styling" >
@@ -81,7 +91,7 @@ const MovieDetails = () => {
               <br />
               <h3>PRODUCTION  <i class="bi bi-camera-reels-fill"></i></h3>
 
-              <div style={{ lineHeight: '.5' }}>
+              <div style={{ }}>
               {post.production_companies.map((pc) => {
                 return <p key={pc.id}>{pc.name}</p>;
               })}
@@ -107,7 +117,7 @@ const MovieDetails = () => {
 
 
             <div className="col-md-3 pt-3" >
-              <img src={`https://image.tmdb.org/t/p/w500${post.poster_path}`} className="imgDetail"  />
+              <img src={`https://image.tmdb.org/t/p/w500${post.poster_path}`} className="imgDetail"  alt="no img found" />
             </div>
           </div>
 

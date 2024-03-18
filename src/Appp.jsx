@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect,  useState } from "react";
 import '/node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import Navbar from "./components/Navbar";
@@ -43,11 +43,13 @@ const Appp = () => {
         <>
 
             <div className="container-fluid " >
-                {isloading ? <div className="row">
-                    <div className="col-md-12 mx-auto text-center pt-5">
-                    <div class="spinner-border " role="status" style={{width:'15vh',height:'15vh'}}>
+                {isloading ? <div className="row "  >
+                    <div className="col-md-12 mx-auto mainImg pt-5" style={{gap:'5px',height:'85vh',display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
+                    <div class="spinner-border loader" role="status" >
                     <span class="visually-hidden" >Loading...</span>
                 </div>
+                
+                <h1>Loading...</h1>
                     </div>
                 </div> : (
                     <div className="row" >
@@ -62,22 +64,9 @@ const Appp = () => {
                                     <h1 className="title ">{randomeMovie.original_title}</h1>
                                     <button className="watch ">Watch</button>
                                 </div>
-
-
-                                {/* <div className="col-md-3 left" style={{ overflow: "auto", height: "calc(100vh - 56px)" }}>
-                                <h3 style={{ fontWeight: "bold", color: 'white', paddingTop: '20px' ,webkitTextStroke:' 1px black '}}>Robert downy Junior</h3>
-                                <h5 style={{ color: 'grey' ,webkitTextStroke:' 1px black '}}>movie director  </h5>
-                                <div className="scrollable-cards ">
-                                    <Card name="hello" img={`https://image.tmdb.org/t/p/w500${randomeMovie.poster_path}`} />
-                                    <Card name="hello" img={`https://image.tmdb.org/t/p/w500${randomeMovie.backdrop_path}`}  />
-                                     </div>
-                            </div> */}
                             </div>
 
                         </div>
-
-
-
                     </div>)
                 }
 

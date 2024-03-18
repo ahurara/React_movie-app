@@ -12,6 +12,8 @@ code {
     monospace;
 }
 
+
+
 .main_screen {
   position: relative;
   background-size:cover;
@@ -22,6 +24,11 @@ code {
   /* min-height: 100vh; */
   
   
+}
+
+.loader{
+  width:15vh !important;
+  height:15vh !important;
 }
 
 /* basic skeleton  */
@@ -187,19 +194,13 @@ code {
   /* Prevents cards from wrapping to the next line */
   overflow-x: auto;
   /* Enable horizontal scrolling */
-  gap: 0px;
+  gap: 10px;
   margin-top: 10px;
   
   padding-left: 20px;
 }
 
-.pcard {
-  margin: 20px;
-  border-radius: 10px;
-  
- 
-  
-}
+
 
 .pimg {
   width: 150px;
@@ -211,17 +212,23 @@ code {
 .searchCards{
   display: flex;
   flex-wrap:wrap;
+  flex-direction: row;
+  align-content: space-evenly;
+  justify-content:space-evenly;
+  gap:20px;
+ 
+  
   /* Prevents cards from wrapping to the next line */
-  overflow-x: auto;
+  /* overflow-x: auto; */
   /* Enable horizontal scrolling */
-  gap: 0px;
+  /* gap: 0px;
   margin-top: 10px;
   
-  padding-left: 20px;
+  padding-left: 20px; */
 }
 
 .scard {
-  margin: 20px;
+  /* margin: 20px; */
   border-radius: 10px;
   width:200px ;
   background-color: #27272a;
@@ -360,7 +367,14 @@ code {
     margin-left: 0px;
   }
   .searchCards{
-    padding-left: 10px;
+    padding-top: 50px;
   }
+  .loader{
+    width:8vh !important;
+    height:8vh !important;
+  }
+  /* .mainImg{
+    height: 60vh !important;
+  } */
   
 }

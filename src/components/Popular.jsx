@@ -1,67 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import PopularCards from "./PopularCards";
 import Skeleton from "./Skeleton";
-
+import {useDispatch , useSelector}  from 'react-redux';
+import { setSelectedType, trendingApi } from "../redux/slice/trendingSlice";
 
 const Popular = () => {
+    const dispatch = useDispatch();
+   
+    const selected = useSelector(state => state.trending.selectedType);
+    const loading = useSelector(state => state.trending.loading);
+    const post = useSelector(state => state.trending.trendings);
 
-    const [post, setPost] = useState(null);
-    const [selected, setSelected] = useState('movies');
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        setTimeout(() => {
-            if (selected === "movies") {
-                const options = {
-                    method: 'GET',
-                    headers: {
-                        accept: 'application/json',
-                        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ZmEyYjI5ZTJjNjdkOTJlMDJmYjIwYzU2YjM1ZjA4OCIsInN1YiI6IjY0ZWM4OWZmNTI1OGFlMDBhZGQ1Yzc2NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CxVu2Z09zDB96mUbxlqSoErCA0z-iaLREQiKtWxdrR0'
-                    }
-                };
-
-                fetch('https://api.themoviedb.org/3/trending/movie/day?language=en-US', options)
-                    .then(response => response.json())
-                    .then((ApiData) => {
-                        // console.log(ApiData.results)
-                        setPost(ApiData.results)
-                        setLoading(false);
-                    })
-                    .catch(err => console.error(err));
-            }
-            else if (selected === "tv") {
-                const options = {
-                    method: 'GET',
-                    headers: {
-                        accept: 'application/json',
-                        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ZmEyYjI5ZTJjNjdkOTJlMDJmYjIwYzU2YjM1ZjA4OCIsInN1YiI6IjY0ZWM4OWZmNTI1OGFlMDBhZGQ1Yzc2NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CxVu2Z09zDB96mUbxlqSoErCA0z-iaLREQiKtWxdrR0'
-                    }
-                };
-
-                fetch('https://api.themoviedb.org/3/trending/tv/day?language=en-US', options)
-                    .then(response => response.json())
-                    .then((ApiData) => {
-                        // console.log(ApiData)
-                        setPost(ApiData.results)
-                        setLoading(false)
-                    })
-                    .catch(err => console.error(err));
-            }
-
-        }, 2500);
-
-    }, [loading])
-
-
+    useEffect(()=>{
+        dispatch(trendingApi(selected));
+      } ,[selected])
 
     const Movies = () => {
-        setSelected('movies');
-        setLoading('true');
+        dispatch(setSelectedType('movies'))
     }
 
     const Tv = () => {
-        setSelected('tv');
-        setLoading('true');
+        dispatch(setSelectedType('tv'))
     }
 
     return (
@@ -73,7 +32,7 @@ const Popular = () => {
                         <h3>What's Popular</h3>
                         <button className={`button1 ${selected === 'movies' ? "selected" : ''}`} onClick={Movies}>Movies</button>
                         <button className={`button2 ${selected === 'tv' ? "selected" : ''}`} onClick={Tv}>On Tv</button>
-                        <button className={`button3 ${selected === 'theaters' ? "selected" : ''}`} onClick={() => { setSelected('theaters') }}>In Theaters</button>
+                        <button className={`button3 ${selected === 'theaters' ? "selected" : ''}`} onClick={() => {}}>In Theaters</button>
                     </div>
                 </div>
             </div>
